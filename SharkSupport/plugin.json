@@ -1,0 +1,9 @@
+{
+    "name": "Shark Support",
+    "author": "Matthew Armstrong",
+    "version": "0.2.1",
+    "description": "WORK IN PROGRESS. Adds thin shark-fin supports under large tilted flat faces: blunt-topped fins that follow the slope and touch the part only at small teeth, with a crossbar foot and a 4 mm brim pad. Shark-fin button in the left toolbar: pick a face or Auto.",
+    "supported_sdk_versions": ["8.0.0", "8.1.0", "8.2.0", "8.3.0", "8.4.0", "8.5.0", "8.6.0", "8.7.0", "8.8.0", "8.9.0", "8.10.0", "8.11.0", "8.12.0", "8.13.0"],
+    "api": 8,
+    "i18n-catalog": "cura"
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shark Support for Cura</title>
+<meta name="description" content="Shark-fin supports for long flat tilted overhangs in UltiMaker Cura. Source-available · Non-commercial. Work in progress.">
+<link rel="icon" href="images/favicon-64.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#14171f;--muted:#5b6270;--line:#e3e4e8;--accent:#e8741a;--accent-ink:#fff;--warn-bg:#fff4d6;--warn-ink:#7a4b00;--code:#f0f1f4}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#101217;--card:#181b22;--ink:#eceef2;--muted:#a3a9b6;--line:#2a2e38;--accent:#f28c28;--accent-ink:#14171f;--warn-bg:#3a2a07;--warn-ink:#ffd98a;--code:#20242d}}
+:root[data-theme="dark"]{--bg:#101217;--card:#181b22;--ink:#eceef2;--muted:#a3a9b6;--line:#2a2e38;--accent:#f28c28;--accent-ink:#14171f;--warn-bg:#3a2a07;--warn-ink:#ffd98a;--code:#20242d}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wip{background:var(--warn-bg);color:var(--warn-ink);font-weight:700;text-align:center;padding:10px 16px;letter-spacing:.02em}
+main{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+header.hero{display:grid;grid-template-columns:1fr;gap:20px;padding:36px 0 12px}
+.brand{display:flex;gap:16px;align-items:center}
+.brand img{width:72px;height:72px;border-radius:16px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0}
+.tag{color:var(--muted);margin:6px 0 0}
+.lead{font-size:18px;max-width:760px}
+.shot{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--card);display:block}
+.cap{color:var(--muted);font-size:14px;margin:6px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 0}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid var(--line);color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+h2{font-size:24px;margin:40px 0 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:820px){.two{grid-template-columns:1fr 1fr}}
+ol li{margin:6px 0}
+code{background:var(--code);padding:1px 6px;border-radius:6px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablewrap{overflow-x:auto}
+footer{border-top:1px solid var(--line);margin-top:48px;padding:20px 16px;color:var(--muted);font-size:14px;text-align:center}
+footer a,main a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wip">WORK IN PROGRESS: MANY FEATURES MAY BE BROKEN · proof of concept 0.2.1-wip</div>
+<main>
+  <header class="hero">
+    <div class="brand">
+      <img src="images/icon-512.png" alt="">
+      <div>
+        <h1>Shark Support</h1>
+        <p class="tag">for UltiMaker Cura · Source-available · Non-commercial</p>
+      </div>
+    </div>
+    <p class="lead">Long flat overhangs from tilted prints get a row of thin fins that follow the slope, touch the part only at small teeth, and stand on a crossbar foot and a 4&nbsp;mm brim pad. Pick the face with the mouse in Cura, or let Auto find them.</p>
+    <div class="btns">
+      <a class="btn primary" id="dl" href="#">Download (Releases)</a>
+      <a class="btn" id="src" href="#">Source on GitHub</a>
+    </div>
+    <img class="shot" src="images/cura-fins.webp" alt="Shark fins under a tilted box in Cura" width="1460" height="700">
+    <p class="cap">The plugin inside Cura (run from Cura's source in testing, see the README) with fins under the 35° test box.</p>
+  </header>
+
+  <h2>What it does</h2>
+  <div class="cards">
+    <div class="card"><h3>Pick or Auto</h3><p>A shark-fin button in Cura's left toolbar: click the underside face to support, or Auto for every big tilted flat face.</p></div>
+    <div class="card"><h3>Follows the slope</h3><p>Fins run downhill under each face, measured by raycasts from the bed, tapering from 2.4 to 1.2&nbsp;mm.</p></div>
+    <div class="card"><h3>Point contact</h3><p>Teeth every 3&nbsp;mm from the very first millimetre. The first two touch the part to hold the start of the overhang; the rest stop 0.15&nbsp;mm short, so it snaps off.</p></div>
+    <div class="card"><h3>Stands up</h3><p>Stops at 85&nbsp;% with a blunt 5&nbsp;mm flat top and a straight back: no tiny slow top layers. Crossbar foot and a one-layer 4&nbsp;mm brim pad.</p></div>
+    <div class="card"><h3>Any slicer</h3><p>A command line tool writes the fins as an STL for PrusaSlicer, OrcaSlicer or anything else.</p></div>
+    <div class="card"><h3>Checks itself</h3><p>A self-check in Cura, and an installer that waits for Cura's own log to say the plugin loaded.</p></div>
+  </div>
+
+  <h2>How one fin looks</h2>
+  <div class="two">
+    <div><img class="shot" src="images/fin-profile.webp" alt="Side view of one fin with labels" width="759" height="622"><p class="cap">Drawn from the real output for the test box.</p></div>
+    <div><img class="shot" src="images/gcode-slice.webp" alt="G-code slice through one fin" width="749" height="610"><p class="cap">Real G-code from PrusaSlicer 2.7.2 through the same fin.</p></div>
+  </div>
+
+  <h2>Install</h2>
+  <div class="two">
+    <div class="card">
+      <ol>
+        <li>Download and unzip the source (or the release).</li>
+        <li>Close Cura.</li>
+        <li>Double-click <code>Install-Linux.sh</code>, <code>Install-Windows.bat</code> or <code>Install-Mac.command</code>.</li>
+        <li>Press <b>Install</b>, then <b>Start Cura</b>. The row goes green when Cura has loaded it.</li>
+        <li>In Cura: select your tilted model, click the shark-fin button in the left toolbar, then <b>Pick face</b> and click the underside, or <b>Auto</b>.</li>
+      </ol>
+      <p class="cap">Or drag the <code>.curapackage</code> from the release onto Cura and restart it.</p>
+    </div>
+    <div><img class="shot" src="images/installer.webp" alt="Installer window" width="860" height="480"></div>
+  </div>
+
+  <h2>The research paper</h2>
+  <div class="card">
+    <p style="color:inherit"><b>Fin-ally Supported</b>: shark-fin supports for long, flat, tilted overhangs. The method in full, every mistake on the way, the numbers, a test plan, and a defensive disclosure that keeps the method free for everyone. Infant sharks do, do, do support prints well.</p>
+    <div class="btns"><a class="btn primary" id="paper" href="https://github.com/The-Dorkknight/fin-ally-supported">Read the paper</a></div>
+  </div>
+
+  <h2>What does not exist yet</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Not yet</th><th>Note</th></tr>
+    <tr><td>Curved or organic undersides</td><td>Only flat faces are found.</td></tr>
+    <tr><td>Fins that follow a moved model</td><td>Remove and add again after moving.</td></tr>
+    <tr><td>Painting where on a face fins go</td><td>Whole faces are picked.</td></tr>
+    <tr><td>A real print test</td><td>Geometry, Cura (from source) and PrusaSlicer slicing were tested; no print yet.</td></tr>
+    <tr><td>Windows and Mac testing</td><td>Launchers written but not run.</td></tr>
+  </table></div>
+</main>
+<footer>
+  Copyright Matthew Armstrong · <a id="lic" href="#">PolyForm Noncommercial License 1.0.0</a> · Source-available, not open source · No warranty, no liability.<br>
+  Not affiliated with UltiMaker. Work in progress: many features may be broken.
+</footer>
+<script>
+(function(){
+  var owner = "The-Dorkknight", repo = "cura-shark-support";
+  try {
+    var h = location.hostname;
+    if (/\.github\.io$/i.test(h)) {
+      owner = h.split(".")[0];
+      var p = location.pathname.split("/").filter(Boolean);
+      if (p.length) repo = p[0];
+    }
+  } catch (e) {}
+  var base = "https://github.com/" + owner + "/" + repo;
+  document.getElementById("src").href = base;
+  document.getElementById("dl").href = base + "/releases";
+  document.getElementById("lic").href = base + "/blob/main/LICENSE.md";
+})();
+</script>
+</body>
+</html>

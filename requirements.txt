@@ -1,0 +1,7 @@
+# The Cura plugin needs nothing extra (Cura ships numpy and PyQt6).
+# The installer needs only the Python standard library (tkinter for the window).
+# The command line tool and the tests need numpy:
+numpy>=1.21
+# Only for redrawing the documentation pictures (tools/):
+# matplotlib>=3.5
+# Pillow>=9

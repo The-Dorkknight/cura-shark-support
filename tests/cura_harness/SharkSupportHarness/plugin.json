@@ -1,0 +1,9 @@
+{
+    "name": "Shark Support test harness",
+    "author": "Matthew Armstrong",
+    "version": "0.2.1",
+    "description": "TEST ONLY - drives Shark Support inside Cura for automated checks.",
+    "supported_sdk_versions": ["8.0.0", "8.13.0"],
+    "api": 8,
+    "i18n-catalog": "cura"
+}

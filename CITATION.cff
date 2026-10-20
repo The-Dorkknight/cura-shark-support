@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this plugin or build on the method, please cite the paper as below."
+title: "Shark Support for UltiMaker Cura"
+type: software
+version: "0.2.1-wip"
+date-released: "2026-10-19"
+license: PolyForm-Noncommercial-1.0.0
+url: "https://github.com/The-Dorkknight/cura-shark-support"
+repository-code: "https://github.com/The-Dorkknight/cura-shark-support"
+authors:
+  - family-names: Armstrong
+    given-names: Matthew
+    alias: The-Dorkknight
+keywords:
+  - 3D printing
+  - Cura plugin
+  - support structures
+  - overhang
+preferred-citation:
+  type: report
+  title: "Fin-ally Supported: Shark-fin supports for long, flat, tilted overhangs. A hobbyist's field guide and a defensive publication"
+  authors:
+    - family-names: Armstrong
+      given-names: Matthew
+      alias: The-Dorkknight
+  date-published: "2026-10-19"
+  version: "1.0"
+  url: "https://github.com/The-Dorkknight/fin-ally-supported"

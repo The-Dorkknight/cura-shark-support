@@ -1,0 +1,44 @@
+name: Bug report
+description: Something did not work
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "Shark Support is WORK IN PROGRESS. Thanks for reporting! Please fill in what you can."
+  - type: input
+    id: version
+    attributes:
+      label: Shark Support version
+      description: Extensions > Shark Support > About, or the installer's status bar
+      placeholder: 0.1.0-wip
+    validations:
+      required: true
+  - type: input
+    id: cura
+    attributes:
+      label: Cura version and platform
+      placeholder: Cura 5.10 on Linux Mint 22 (AppImage)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: selfcheck
+    attributes:
+      label: Self-check result
+      description: Extensions > Shark Support > Run self-check, paste the text
+  - type: textarea
+    id: log
+    attributes:
+      label: cura.log (lines mentioning Shark Support)
+      description: Linux ~/.local/share/cura/5.x/cura.log, Windows %APPDATA%\cura\5.x\cura.log, Mac ~/Library/Application Support/cura/5.x/cura.log
+      render: text
+  - type: textarea
+    id: model
+    attributes:
+      label: Model
+      description: If you can, attach the STL or a 3MF project (zip it first)
